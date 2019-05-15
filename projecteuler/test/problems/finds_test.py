@@ -17,7 +17,7 @@ def test_find_prime_factors_for_input_zero(input_value, result):
     (10, 11, 121)
 ])
 def test_find_largest_palindromic_number(min_input, max_input, result):
-    assert finds.find_largest_palindromic_sum(min_input, max_input) == result
+    assert finds.find_largest_palindromic_product(min_input, max_input) == result
 
 @pytest.mark.parametrize("min_input, max_input, result", [
     (1, 10, 2520),
@@ -30,11 +30,12 @@ def test_find_smallest_multiple(min_input, max_input, result):
 @pytest.mark.parametrize("min_input, max_input", [
     (0, 1),
     (1, 0),
+    (2, 1),
     ("1", 2),
     (1, "2"),
     (None, 1),
     (1, None)
 ])
 def test_find_smallest_multiple_input_values(min_input, max_input):
-    with pytest.raises(TypeError):
+    with pytest.raises(ValueError):
         finds.find_smallest_multiple(min_input, max_input)

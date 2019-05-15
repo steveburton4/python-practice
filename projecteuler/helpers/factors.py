@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 
-def get_factors(number, list_to_filter_by=[]):
-    if not list_to_filter_by:
-        list_to_filter_by = list(range(1, number+1))
-    
-    factors = []
-    check_list = list_to_filter_by
-    for check_number in list_to_filter_by:
-        for multiply_number in check_list:
-            if check_number * multiply_number == number:
-                if check_number not in factors:
-                    factors.append(check_number)
-                break
+import math
+
+def get_factors(number):
+    factors = set()
+    for check_number in range(1, int(math.sqrt(number))+1):
+        if number % check_number == 0:
+            factors.update({check_number, number // check_number})
     
     return factors

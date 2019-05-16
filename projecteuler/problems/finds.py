@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from projecteuler.helpers import primenumbers, factors, number_checks
+from projecteuler.helpers import primenumbers, factors, string_checks
 
 def find_largest_prime_factor(number):
     primes = primenumbers.get_prime_numbers(0, number)
@@ -18,7 +18,7 @@ def find_largest_palindromic_product(min_number_to_sum, max_number_to_sum):
     for max_number in range(max_number_to_sum, 0, -1):
         for min_number in range(max_number_to_sum, min_number_to_sum, -1):
             sum_number = max_number * min_number
-            if number_checks.is_palindrome(str(sum_number)):
+            if string_checks.is_palindrome(str(sum_number)):
                 return sum_number
     return None
 

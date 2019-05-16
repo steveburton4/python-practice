@@ -32,10 +32,13 @@ def find_smallest_multiple(min_number, max_number):
     if max_number < min_number:
         raise ValueError("Max number must be greater than or equal to min number")
     
-    count=max_number
-    while(True):
-        if all(count % number == 0 for number in range(min_number, max_number+1)):
-            return count
-        count += max_number
+    total = 1
+    for number in range(min_number, max_number + 1):
+        lowest_multiplier = 1
+        for multiplier in range(1, number+1):
+            if total * multiplier % number == 0:
+                lowest_multiplier = multiplier
+                break
+        total *= lowest_multiplier
 
-    return None
+    return total
